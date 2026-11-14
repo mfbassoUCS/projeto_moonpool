@@ -1,0 +1,10 @@
+Turbo Assembler  Version 4.1  Copyright (c) 1988, 1996 Borland International
+
+Assembling file:   TOPO.ASM
+Error messages:    None
+Warning messages:  None
+Passes:            1
+Remaining memory:  338k
+
+Turbo Link  Version 7.1.30.1. Copyright (c) 1987, 1996 Borland International
+PASS TOPO: laco real, 12 casos, 240 registros.

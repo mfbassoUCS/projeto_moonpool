@@ -1,0 +1,7 @@
+E08 - inicio
+PASS E08 LOG: 426 verificacoes T17-T20.
+PASS E08 PIX: composicao de tiros/ceu/terreno/jipe/guardas.
+PASS E08 AUTO: dois canhoes, rocha+nave, tiro orfao, morte/reposicao,
+6 s reais, ultima vida, reset, IRQ, retorno BIOS e Sair.
+PASS: modo texto 03h e pagina 0 restaurados
+PASS E08

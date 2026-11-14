@@ -1,0 +1,10 @@
+
+ Start  Stop   Length Name               Class
+
+ 00000H 00F37H 00F38H _TEXT              CODE
+ 00F40H 098EDH 089AEH _DATA              DATA
+ 098F0H 099EFH 00100H STACK              STACK
+ 099F0H 197D7H 0FDE8H VIDEOTESTE         FAR_DATA
+
+Program entry point at 0000:0000
+

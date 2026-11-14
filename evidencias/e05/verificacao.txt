@@ -1,0 +1,19 @@
+Fonte SHA256: F5BA545D4B333C3D5F25397251E83386F2D20AFBBB5AD0103E9940BC888CB91F
+E05 - inicio
+PASS MEM: 320 quadros/2 voltas; todos os pixels; HUD/ceu; guarda;
+offsets 1/319; FF/00; 99/100/350 centesimos; pausa; meia-noite.
+PASS JIPE: casos de controle/fases/limites; 640 quadros;
+duas voltas; fundo com/sem rolagem; 65000 bytes por quadro; DF.
+PASS E05 LOGICA: 362 verificacoes; 7 saltos reais; 20000 pixels gerados.
+PASS E05 PIX: 336 quadros exportados com guarda e metadados.
+PASS E05 AUTO: geracao/morte natural, reposicao, ultima vida, tempo, reset, Sair.
+PASS: modo texto 03h e pagina 0 restaurados
+PASS E05
+Geracao: 199 nascimentos em 20000 pixels; tipos {0: 28, 1: 35, 2: 37, 3: 28, 4: 26, 5: 19, 6: 26}.
+D07: espaco livre 150..230 entre crateras; uma rocha no intervalo, >=60 px livres de cada lado.
+Pixels: 336 quadros reais, 65000 bytes cada (21.840.000 comparacoes), recorte esquerdo/direito, fundo com/sem rolagem, jipe presente/ausente, HUD/ceu/1000 bytes guarda.
+Fluxo real: primeira morte natural em 17.80s DOS; tempo 73s -> 71s na reposicao; rolagem 302 -> 14; expiracao separada 4.06s DOS, score final 250.
+Inspecao: artes E02 e 13 rotinas preservadas; ASCII/.8086 e cabecalhos conferidos.
+Dados MOON: 00CD0H 095CFH 08900H _DATA              DATA
+PENDENTE: teclado fisico, botoes IDE, conforto/fluidez/cintilacao, precisao externa dos 90 s, aceitacao das convencoes tecnicas pelo professor.
+Dumps/PNGs sao memoria reconstruida, nao filmagem/uso fisico. Valores forcados de teste nao mudam a configuracao normal.

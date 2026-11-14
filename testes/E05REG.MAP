@@ -1,0 +1,11 @@
+
+ Start  Stop   Length Name               Class
+
+ 00000H 00F10H 00F11H _TEXT              CODE
+ 00F20H 09878H 08959H _DATA              DATA
+ 09880H 0997FH 00100H STACK              STACK
+ 09980H 19767H 0FDE8H VIDEOTESTE         FAR_DATA
+ 19770H 2146FH 07D00H REFERENCIA         FAR_DATA
+
+Program entry point at 0000:0000
+

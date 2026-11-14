@@ -1,0 +1,17 @@
+{
+  "Moon Patrol": {
+    "font": "Mini",
+    "url": "https://patorjk.com/software/taag/#p=display&f=Mini&t=Moon%20Patrol",
+    "text": "                     _                 \n |\\/|  _   _  ._    |_) _. _|_ ._ _  | \n |  | (_) (_) | |   |  (_|  |_ | (_) | \n                                       "
+  },
+  "GAME": {
+    "font": "Small",
+    "url": "https://patorjk.com/software/taag/#p=display&f=Small&t=GAME",
+    "text": "   ___   _   __  __ ___ \n  / __| /_\\ |  \\/  | __|\n | (_ |/ _ \\| |\\/| | _| \n  \\___/_/ \\_\\_|  |_|___|\n                        "
+  },
+  "OVER": {
+    "font": "Small",
+    "url": "https://patorjk.com/software/taag/#p=display&f=Small&t=OVER",
+    "text": "   _____   _____ ___ \n  / _ \\ \\ / / __| _ \\\n | (_) \\ V /| _||   /\n  \\___/ \\_/ |___|_|_\\\n                     "
+  }
+}

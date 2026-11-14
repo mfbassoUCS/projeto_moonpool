@@ -1,0 +1,9 @@
+PASS: 7 capturas reais de 64000 bytes; indices VGA 0..15.
+PASS: titulo 0Ah; selecao 0Ch/0Fh e inversao; GAME/OVER 04h; score 0Fh.
+PASS: jipe 20x10 / 3 naves 14x14; posicoes apos 320 quadros; faixa sem rastros.
+PASS: 17 artes em ARTES.BIN identicas as grades; 32932 bytes; galeria no DOS.
+PASS: relevo 320x64 e 320x32 com bordas identicas (sem teste de rolagem).
+PASS: fundo fora da faixa animada preservado; menu de retorno identico ao inicial.
+PASS: ASCII no fonte coincide com TAAG Mini/Small arquivado.
+PNGs: reconstrucao dos indices A000h com paleta VGA padrao, nao PrintWindow.
+ORIGEM: artes proprias autorizadas; nao reproduzem figuras do professor/arcade.

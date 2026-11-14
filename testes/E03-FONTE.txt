@@ -1,0 +1,9 @@
+
+
+Algorithm : SHA256
+Hash      : 8C80F27768566C26175C467A4DAE00C0A046B1C9A0272F903E07E9657A666F08
+Path      : C:\ucs\moon_patrol\testes\E03BASE.ASM
+
+
+
+

@@ -1,0 +1,22 @@
+### Welcome to GUI Turbo Assembler Version 5.1 | Developed by: Lakhya Jyoti Nath (ljnath) | MCA 2k15, Tezpur University, IN | Build Time: 23rd November 2023 00:28:03 Hrs. IST ###
+
+[24 out 2026 11:36:43.378] Your last session has been successfully restored.
+[24 out 2026 11:40:26.404] Assembling source code to object file using arguments: /ml /z /zi. Source file: C:\ucs\moon_patrol\MOON.ASM
+[24 out 2026 11:40:26.466] Executing command: TASM /ml /z /zi MOON.ASM
+[24 out 2026 11:40:28.183] --- Output from TASM --------------------------------------------------------------------------
+[24 out 2026 11:40:28.190] Turbo Assembler  Version 4.1  Copyright (c) 1988, 1996 Borland International
+[24 out 2026 11:40:28.195] Assembling file:   MOON.ASM
+[24 out 2026 11:40:28.201] Error messages:    None
+[24 out 2026 11:40:28.206] Warning messages:  None
+[24 out 2026 11:40:28.211] Passes:            1
+[24 out 2026 11:40:28.217] Remaining memory:  458k
+[24 out 2026 11:40:28.222] -----------------------------------------------------------------------------------------------
+[24 out 2026 11:40:28.229] The code assemble process completed successfully.
+[24 out 2026 11:40:49.141] Building object file to executable file using arguments: /x /v /3 /k. Source file: C:\ucs\moon_patrol\MOON.obj
+[24 out 2026 11:40:49.172] Executing command: TLINK /x /v /3 /k MOON
+[24 out 2026 11:40:50.964] --- Output from TLINK --------------------------------------------------------------------------
+[24 out 2026 11:40:50.970] Turbo Link  Version 7.1.30.1. Copyright (c) 1987, 1996 Borland International
+[24 out 2026 11:40:50.975] -----------------------------------------------------------------------------------------------
+[24 out 2026 11:40:50.984] The code build process completed successfully.
+[24 out 2026 11:41:08.381] Executing the executable file using the Assembly Launcher. Target file: C:\ucs\moon_patrol\MOON.exe
+[24 out 2026 11:43:00.544] The execution of the executable completed successfully.

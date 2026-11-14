@@ -1,0 +1,6 @@
+Conferencia final: 06/11/2026.
+PASS: fonte ASCII, 69 rotinas; codigo sem comentarios identico a E08BASE.
+PASS: 135 artefatos historicos e 27 copias de evidencias preservados por SHA256.
+PASS: 95 links locais dos documentos E09 resolvidos; R01-R28 e T01-T20 presentes.
+Suite DOS e GUI executadas em 02/11; KEY e conferidor completo aprovados em 06/11.
+Pendentes: teclado fisico, conforto/esquiva/fluidez, 90 s externos e obrigacoes academicas.

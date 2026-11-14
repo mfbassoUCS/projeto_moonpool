@@ -1,0 +1,4 @@
+PASS fase 0 (direita mantida): X=140, Y=183, rolagem 0->55, rocha 280->225, tempo 90->88; pixels do relevo conferidos.
+PASS fase 1 (sem tecla): X=140, Y=183, rolagem 0->56, rocha 280->224, tempo 90->88; pixels do relevo conferidos.
+Fonte SHA256: 13176bc9f5ef6a9123945cac44732bb933d8511214ecd100f7ea081703025e6d
+Ensaio controlado (~3 s por fase), usa AtualizarPartida e video reais; teclas sintetizadas por estado e cadencia inimiga adiada somente na variante para isolar pixels do relevo. Sem teste fisico. Nenhuma alteracao no jogo.

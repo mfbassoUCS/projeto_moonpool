@@ -1,0 +1,14 @@
+{
+  "data": "08/11/2026",
+  "fonte_sha256": "13176BC9F5EF6A9123945CAC44732BB933D8511214ECD100F7EA081703025E6D",
+  "exe_sha256": "820051F556FF1BD7756236F00AEEE9AAC9F815656C619C0EB9587BC8C06ACE58",
+  "rotinas_com_cabecalho": 69,
+  "bitmaps": 17,
+  "artes_inalteradas": true,
+  "passo_jipe": 5,
+  "passo_cenario": 1,
+  "ticks_cenario": 1,
+  "referencia_topo": "avanco do terreno (D05 mantida)",
+  "suite": "R08 + N08 + E08 + KEY: PASS; conferidores de pixels/geometria: PASS",
+  "fontes_arte": "Figuras originais do professor nao presentes no MD recebido; fidelidade nao comprovada"
+}

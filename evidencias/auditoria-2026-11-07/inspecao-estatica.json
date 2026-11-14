@@ -1,0 +1,93 @@
+{
+  "fonte_sha256": "8f9bf3fad3c8684b8326da5ce8f438cfba672a3944624e7bee4730e25928f064",
+  "rotinas_com_cabecalho": 69,
+  "bitmaps": {
+    "bitmapJipe": [
+      20,
+      10,
+      200
+    ],
+    "bitmapNave1": [
+      14,
+      14,
+      196
+    ],
+    "bitmapNave2": [
+      14,
+      14,
+      196
+    ],
+    "bitmapNave3": [
+      14,
+      14,
+      196
+    ],
+    "bitmapVidas3": [
+      18,
+      11,
+      198
+    ],
+    "bitmapVidas2": [
+      18,
+      11,
+      198
+    ],
+    "bitmapVidas1": [
+      18,
+      11,
+      198
+    ],
+    "bitmapRelogio": [
+      7,
+      8,
+      56
+    ],
+    "bitmapCratera1": [
+      14,
+      7,
+      98
+    ],
+    "bitmapCratera2": [
+      14,
+      7,
+      98
+    ],
+    "bitmapCratera3": [
+      14,
+      7,
+      98
+    ],
+    "bitmapRocha1": [
+      12,
+      10,
+      120
+    ],
+    "bitmapRocha2": [
+      12,
+      10,
+      120
+    ],
+    "bitmapRocha3": [
+      12,
+      10,
+      120
+    ],
+    "bitmapRocha4": [
+      12,
+      10,
+      120
+    ],
+    "bitmapMontanhas": [
+      320,
+      64,
+      20480
+    ],
+    "bitmapMontes": [
+      320,
+      32,
+      10240
+    ]
+  },
+  "taag": "Tres blocos identicos ao artefato local taag.json; sem nova consulta externa.",
+  "alteracao_ensaio_naves": "Somente expectativa do caso 43: 6 -> 10; rotinas do jogo intactas."
+}

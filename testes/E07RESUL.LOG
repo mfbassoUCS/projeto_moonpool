@@ -1,0 +1,9 @@
+E07 - inicio
+PASS E07 LOGICA: 48 verificacoes; 4096 sementes; 20000 passos mistos.
+PASS E07 PIX: 390 quadros; naves/jipe/terreno/remocao/recorte.
+PASS MEM: dimensoes; FF transparente/00 opaco; DF; 8 invalidos;
+sobreposicao; 400 quadros/2 voltas cada; fundo inteiro; guarda 1000.
+PASS E07 TELAS: 320 quadros/ticks; selecao; SETOR/Enter;
+2 s sem consumir tempo; Enter antigo; reset; GAME OVER; letra/seta; Sair.
+PASS: modo texto 03h e pagina 0 restaurados
+PASS E07

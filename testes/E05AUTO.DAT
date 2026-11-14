@@ -1,0 +1,15 @@
+faseAuto db 0
+erroAuto db 'FAIL E05 AUTO fase=$'
+autoOk db 'PASS E05 AUTO: geracao/morte natural, reposicao, ultima vida, tempo, reset, Sair.',13,10,'$'
+tickInicioTeste dw 0
+horaInicioLo dw 0
+horaInicioHi dw 0
+horaFimLo dw 0
+horaFimHi dw 0
+tempoAntesMorte dw 0
+rolagemAntesMorte dw 0
+nomeAuto db 'E05AUTO.BIN',0
+nomeMorte db 'E05MORT.RAW',0
+nomeRepor db 'E05REPO.RAW',0
+nomeFimAuto db 'E05FIM.RAW',0
+registroAuto dw 8 dup(0)

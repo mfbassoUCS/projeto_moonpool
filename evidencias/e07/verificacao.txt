@@ -1,0 +1,21 @@
+Data: 31/10/2026. Fonte SHA256: FCA3099062C1F4BF34EB1EAADE7E98991587453E6D5A77B83A7025DBCBE10901
+E07 - inicio
+PASS E07 LOGICA: 48 verificacoes; 4096 sementes; 20000 passos mistos.
+PASS E07 PIX: 390 quadros; naves/jipe/terreno/remocao/recorte.
+PASS MEM: dimensoes; FF transparente/00 opaco; DF; 8 invalidos;
+sobreposicao; 400 quadros/2 voltas cada; fundo inteiro; guarda 1000.
+PASS E07 TELAS: 320 quadros/ticks; selecao; SETOR/Enter;
+2 s sem consumir tempo; Enter antigo; reset; GAME OVER; letra/seta; Sair.
+PASS: modo texto 03h e pagina 0 restaurados
+PASS E07
+Telas: 320 quadros reais por ticks em 35.15s DOS; SETOR esperou 2.03s sem consumir tempo da partida.
+D04: SETOR 1 e Enter para iniciar; letras/setas nao iniciam; Enter enfileirado descartado; nova partida reinicia os 90 s.
+Seis dumps A000h de 64000 bytes: menu/animacao/selecao/setor/fim/retorno; cores, areas estaticas, sprites e retorno identico conferidos.
+E07MEM: 400 quadros de menu em RAM, duas voltas por objeto, invalidos, FF/00, DF e 1000 bytes de guarda; artes/TAAG preservados.
+Regressao completa E03-E06 sobre MOON atual aprovada: ver regressao-naves.txt e regressao/verificacao.txt. Saida por vidas e tempo, reset, score real, IRQ1 e modo/pagina restaurados.
+Inspecao: rotinas de jogo e constantes preservadas desde E06; apenas apresentacao SETOR/FIM ajustada e aviso de demonstracao removido.
+Dados MOON: 00E60H 09780H 08921H _DATA              DATA
+T01-T16: evidencias automaticas/inspecao mapeadas em planejamento/13-validacao-e-entrega.md; partes fisicas continuam pendentes.
+T17-T20: NAO APLICAVEIS ao minimo; nenhum tiro implementado.
+PENDENTE: teclado fisico, botoes IDE atuais, conforto dos saltos, fluidez/rasgos, 90 s normais com cronometro externo. Sem medicao externa nova.
+A integracao minima passou nas verificacoes automaticas; isso nao conclui a validacao fisica para apresentacao. PNGs sao memoria reconstruida.
