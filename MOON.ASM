@@ -1578,6 +1578,9 @@ AvancarCenario endp ; Fecha a definicao de AvancarCenario no montador; quem reto
 ; Saida: linhaCenario sobreposta (FFh preserva, 00h opaco).
 ; Preserva: registradores. Altera: flags (DF=0) e buffer de 320 bytes.
 ComporLinhaCircular proc near ; Por que: E03: combinar camadas numa linha de RAM evita mostrar a composicao incompleta no video.
+    push es ; Preserva o segmento de video enquanto STOSB escreve no buffer de dados.
+    push ds ; Prepara ES=DS, pois linhaCenario esta nos dados.
+    pop es ; STOSB usa ES:DI como destino, mesmo fora da memoria de video.
     push ax ; Guarda AX na pilha para nao perder o valor durante calculos/chamadas; POP recupera em ordem inversa.
     push cx ; Guarda CX na pilha para nao perder o valor durante calculos/chamadas; POP recupera em ordem inversa.
     push si ; Guarda SI na pilha para nao perder o valor durante calculos/chamadas; POP recupera em ordem inversa.
@@ -1593,9 +1596,11 @@ comporPixel: ; Rotulo: destino dos saltos dentro de ComporLinhaCircular; nao exe
     lodsb ; Le o proximo byte em DS:SI para AL e avanca SI; cada byte da arte representa um pixel.
     cmp al,TRANSPARENTE ; Compara AL com TRANSPARENTE sem mudar os valores; o salto seguinte usa as flags para decidir o caminho.
     je comporTransparente ; Vai a comporTransparente se AL for igual a TRANSPARENTE.
-    mov [di],al ; Grava no buffer em DS, ainda nao no video; FFh pula esta escrita.
+    stosb ; Grava o pixel opaco em ES:DI e avanca DI uma vez.
+    jmp comporAvancarFonte ; STOSB ja avancou o destino; nao repetir INC DI.
 comporTransparente: ; Rotulo: destino dos saltos dentro de ComporLinhaCircular; nao executa acao nem cria uma nova chamada.
-    inc di ; Avanca uma coluna no buffer mesmo se o pixel for transparente; a transparencia tambem ocupa espaco.
+    inc di ; Pula o pixel transparente sem modificar a cor que ja estava no buffer.
+comporAvancarFonte: ; Confere a volta circular da origem depois de avancar uma coluna no destino.
     cmp si,bp ; Compara SI com BP sem mudar os valores; o salto seguinte usa as flags para decidir o caminho.
     jb comporProximo ; Vai a comporProximo se SI for menor que (sem sinal) BP.
     sub si,TELA_LARG            ; somente volta na origem, destino continua | Ao chegar ao fim da arte, volta 320 bytes; o destino continua avancando normalmente.
@@ -1606,6 +1611,7 @@ comporProximo: ; Rotulo: destino dos saltos dentro de ComporLinhaCircular; nao e
     pop si ; Recupera em SI o valor no topo da pilha, desfazendo o salvamento correspondente.
     pop cx ; Recupera em CX o valor no topo da pilha, desfazendo o salvamento correspondente.
     pop ax ; Recupera em AX o valor no topo da pilha, desfazendo o salvamento correspondente.
+    pop es ; Restaura o segmento de video antes de devolver a linha composta.
     ret ; Volta a quem chamou esta rotina, usando o endereco de retorno guardado por CALL.
 ComporLinhaCircular endp ; Fecha a definicao de ComporLinhaCircular no montador; quem retorna durante a execucao e RET/IRET.
 
@@ -1779,11 +1785,13 @@ desenhoFim: ; Rotulo: destino dos saltos dentro de DesenharBitmap; nao executa a
     ret ; Volta a quem chamou esta rotina, usando o endereco de retorno guardado por CALL.
 DesenharBitmap endp ; Fecha a definicao de DesenharBitmap no montador; quem retorna durante a execucao e RET/IRET.
 
-; Funcao: guardar fundo antes de colocar um bitmap sobre ele.
+; Funcao: guardar fundo com REP MOVSB antes de colocar um bitmap sobre ele.
 ; Entrada: DS:SI=buffer de largura*altura bytes; demais como DesenharBitmap.
 ; Saida: fundo salvo no buffer; coordenadas invalidas nao copiam nada.
-; Preserva: todos os registradores. Altera: flags e buffer em DS.
+; Preserva: todos os registradores, inclusive DS/ES. Altera: flags (DF=0) e buffer em DS.
 SalvarFundo proc near ; Por que: E01: guardar o que existia sob o objeto permite apaga-lo sem destruir o cenario.
+    push ds ; Guarda o segmento dos dados; durante a copia, DS apontara para o video.
+    push es ; Guarda o segmento do video; durante a copia, ES apontara para o buffer.
     push ax ; Guarda AX na pilha para nao perder o valor durante calculos/chamadas; POP recupera em ordem inversa.
     push bx ; Guarda BX na pilha para nao perder o valor durante calculos/chamadas; POP recupera em ordem inversa.
     push cx ; Guarda CX do chamador; a rotina o usara como contador de pixels e o devolvera ao terminar.
@@ -1793,19 +1801,21 @@ SalvarFundo proc near ; Por que: E01: guardar o que existia sob o objeto permite
     push bp ; Guarda BP na pilha para nao perder o valor durante calculos/chamadas; POP recupera em ordem inversa.
     call PrepararRetangulo ; Chama PrepararRetangulo para validar retangulo inteiro e calcular endereco inicial; CALL guarda onde voltar.
     jc salvarFim ; Vai a salvarFim se retangulo invalido; nao acessar video.
+    cld ; Garante copia para a frente mesmo quando o chamador deixou DF=1.
+    mov ax,ds ; Guarda temporariamente o segmento do buffer em AX.
+    mov dx,es ; Guarda temporariamente o segmento da origem grafica em DX.
+    mov ds,dx ; MOVSB le de DS:SI: a origem passa a ser o video.
+    mov es,ax ; MOVSB escreve em ES:DI: o destino passa a ser o buffer.
+    xchg si,di ; SI recebe o offset do video; DI recebe o offset do buffer.
 salvarLinha: ; Rotulo: destino dos saltos dentro de SalvarFundo; nao executa acao nem cria uma nova chamada.
     push cx ; Guarda a largura da linha antes de o laco de pixels consumir CX; POP permite reutiliza-la na linha seguinte.
-salvarPixel: ; Rotulo: destino dos saltos dentro de SalvarFundo; nao executa acao nem cria uma nova chamada.
-    mov al, es:[di] ; Le um pixel do video ES:DI; estamos capturando o fundo, nao desenhando.
-    mov [si], al ; Guarda esse pixel no buffer DS:SI, para restaura-lo quando o objeto se mover.
-    inc di ; Avanca para o proximo pixel do video que precisa ser guardado.
-    inc si ; Avanca para o proximo byte livre do buffer que recebe a captura.
-    loop salvarPixel ; Diminui CX e volta a salvarPixel se ainda restam itens; zero encerra esta repeticao.
+    rep movsb ; Copia a linha do video para o buffer usando somente instrucao de strings.
     pop cx ; Recupera a largura original para processar a proxima linha do mesmo retangulo.
-    add di, bx ; Pula as colunas da tela fora do retangulo: DI chega ao mesmo X na proxima linha de 320 pixels.
+    add si, bx ; Pula as colunas fora do retangulo na origem; o buffer de destino e continuo.
     dec bp ; Uma linha terminou; reduz a altura restante para saber se ainda deve processar outra.
     jnz salvarLinha ; Vai a salvarLinha se o resultado/teste anterior for diferente de zero (ZF=0).
 salvarFim: ; Rotulo: destino dos saltos dentro de SalvarFundo; nao executa acao nem cria uma nova chamada.
+    cld ; Devolve DF=0 tambem quando o retangulo foi rejeitado.
     pop bp ; Recupera em BP o valor no topo da pilha, desfazendo o salvamento correspondente.
     pop di ; Recupera em DI o valor no topo da pilha, desfazendo o salvamento correspondente.
     pop si ; Recupera em SI o valor no topo da pilha, desfazendo o salvamento correspondente.
@@ -1813,6 +1823,8 @@ salvarFim: ; Rotulo: destino dos saltos dentro de SalvarFundo; nao executa acao 
     pop cx ; Restaura CX do chamador depois que todas as linhas foram processadas (ou o desenho foi rejeitado).
     pop bx ; Recupera em BX o valor no topo da pilha, desfazendo o salvamento correspondente.
     pop ax ; Recupera em AX o valor no topo da pilha, desfazendo o salvamento correspondente.
+    pop es ; Restaura o segmento original da memoria de video.
+    pop ds ; Restaura os dados do jogo antes de retornar ao chamador.
     ret ; Volta a quem chamou esta rotina, usando o endereco de retorno guardado por CALL.
 SalvarFundo endp ; Fecha a definicao de SalvarFundo no montador; quem retorna durante a execucao e RET/IRET.
 
@@ -1837,9 +1849,11 @@ spritePixel: ; Rotulo: destino dos saltos dentro de DesenharSprite; nao executa 
     lodsb ; Le um pixel da arte DS:SI em AL e avanca SI, pois DF esta zerado.
     cmp al,TRANSPARENTE ; Compara AL com TRANSPARENTE sem mudar os valores; o salto seguinte usa as flags para decidir o caminho.
     je spriteTransparente ; Vai a spriteTransparente se AL for igual a TRANSPARENTE.
-    mov es:[di],al ; So escreve pixels opacos no video; FFh deixa aparecer o fundo que ja estava ali.
+    stosb ; Escreve o pixel opaco em ES:DI e avanca DI uma vez.
+    jmp spriteProximo ; STOSB ja avancou DI; seguir sem incrementar novamente.
 spriteTransparente: ; Rotulo: destino dos saltos dentro de DesenharSprite; nao executa acao nem cria uma nova chamada.
-    inc di ; Avanca no video mesmo quando AL=FFh; pixel transparente ocupa uma coluna, mas nao substitui a cor.
+    inc di ; Pula o pixel transparente sem escrever no video.
+spriteProximo: ; Ambos os caminhos avancaram exatamente uma coluna.
     loop spritePixel ; Diminui CX e volta a spritePixel se ainda restam itens; zero encerra esta repeticao.
     pop cx ; Recupera a largura original para processar a proxima linha do mesmo retangulo.
     add di,bx ; Pula as colunas da tela fora do retangulo: DI chega ao mesmo X na proxima linha de 320 pixels.
@@ -2224,9 +2238,11 @@ recortePixel: ; Rotulo: destino dos saltos dentro de DesenharSpriteRecortado; na
     lodsb ; Le o proximo byte em DS:SI para AL e avanca SI; cada byte da arte representa um pixel.
     cmp al,TRANSPARENTE ; Compara AL com TRANSPARENTE sem mudar os valores; o salto seguinte usa as flags para decidir o caminho.
     je recorteTransparente ; Vai a recorteTransparente se AL for igual a TRANSPARENTE.
-    mov es:[di],al ; Escreve a cor AL no pixel ES:DI; ES aponta para a memoria de video.
+    stosb ; Escreve a cor AL no video por strings e avanca DI uma vez.
+    jmp recorteProximo ; STOSB ja avancou DI; nao repetir o incremento.
 recorteTransparente: ; Rotulo: destino dos saltos dentro de DesenharSpriteRecortado; nao executa acao nem cria uma nova chamada.
-    inc di ; Avanca uma coluna visivel no video, mesmo se o pixel da arte for transparente.
+    inc di ; Pula a coluna transparente preservando o fundo.
+recorteProximo: ; Mantem uma coluna de avanco por pixel, inclusive nas bordas recortadas.
     loop recortePixel ; Diminui CX e volta a recortePixel se ainda restam itens; zero encerra esta repeticao.
     pop cx ; Recupera a largura original para processar a proxima linha do mesmo retangulo.
     add si,dx ; Pula na arte as colunas recortadas para chegar a proxima linha original.

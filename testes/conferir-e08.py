@@ -99,7 +99,9 @@ dos=(hi*65536+lo)/100
 host=json.loads((t/'E08HOST.json').read_text(encoding='utf-8-sig'))
 assert 6<=dos<7 and 6<=host['segundos']<7,(dos,host)
 src=(root/'MOON.ASM').read_text()
-assert 'call RemoverNave\n    jnc tiroNaveProxima' in src
+# Comentarios nao interrompem a adjacencia das instrucoes que usam CF.
+codigo = '\n'.join(line.split(';', 1)[0].rstrip() for line in src.splitlines())
+assert 'call RemoverNave\n    jnc tiroNaveProxima' in codigo
 assert all(x in src for x in ['TIRO_SUP_MAX    equ 8','TIRO_FRE_MAX    equ 8','TIRO_INI_MAX    equ 12','IMPACTOS_ROCHA4 equ 2'])
 report=[f'Data: {args.data}. Fonte SHA256: {digest}',result.strip(),pixel_report,
 f'Fluxo completo: 6 s controlados = {dos:.2f}s DOS / {host["segundos"]:.3f}s Windows entre sinais (inclui instrumentacao).',
