@@ -1,9 +1,0 @@
-N08 - inicio
-PASS N08 LOGICA: 48 verificacoes; 4096 sementes; 40000 pixels de terreno em passos mistos.
-PASS N08 PIX: 390 quadros; naves/jipe/terreno/remocao/recorte.
-PASS MEM: dimensoes; FF transparente/00 opaco; DF; 8 invalidos;
-sobreposicao; 400 quadros/2 voltas cada; fundo inteiro; guarda 1000.
-PASS N08 TELAS: 320 quadros/ticks; selecao; SETOR/Enter;
-2 s sem consumir tempo; Enter antigo; reset; GAME OVER; letra/seta; Sair.
-PASS: modo texto 03h e pagina 0 restaurados
-PASS N08

@@ -1,9 +1,0 @@
-{
-  "status": "concluida",
-  "fonte_sha256": "13176bc9f5ef6a9123945cac44732bb933d8511214ecd100f7ea081703025e6d",
-  "arquivos": {
-    "testes/E08KEY.LOG": "b91f7c0aac61621e029fd0bef98fa36c354668e2e5a9af17362ed53c95e99f58",
-    "testes/E08KRES.LOG": "29ee760067f3759921053c0761c585732f78f89e0629683fde25fff0f5c298b9",
-    "testes/E08KEY.EXE": "346f40e2ef72b8fb8bfe3515dfa430b19e48f558a83adc19b74aedf0930ff417"
-  }
-}

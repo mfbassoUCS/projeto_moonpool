@@ -1,9 +1,0 @@
-PASS: artes E02 identicas; 8 dumps reais A000h; relevo/camadas/base sem lacunas;
-pista 320x7; emenda 318->0; duas voltas; HUD 3/2/1/0; relogio 7x8; digitos sem restos.
-DOS: duracao(s), ticks/quadro, quadros, expiracao(s), primeiro desconto observado(s):
-(4, 2, 35, 4.12, 1.26)
-(4, 4, 18, 4.06, 1.21)
-(45, 2, 390, 45.15, 1.26)
-Stopwatch Windows entre escritas de inicio/fim (inclui instrumentacao): [4.129, 4.082, 45.166]
-Inspecao e execucao automatizada; nao equivalem a teclado fisico nem botoes da IDE.
-Resolucao DOS aproximadamente 55 ms; atraso de consulta/desenho permitido. Sem medir FPS visual/tearing.

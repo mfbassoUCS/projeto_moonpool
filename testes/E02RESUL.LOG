@@ -1,7 +1,0 @@
-E02 - inicio
-PASS MEM: dimensoes; FF transparente/00 opaco; DF; 8 invalidos;
-sobreposicao; 400 quadros/2 voltas cada; fundo inteiro; guarda 1000.
-PASS AUTO: 320 quadros por ticks; cima/baixo/Enter; setor/fim/menu;
-buffer antigo limpo; 2 demos; score 0/12345/65535; Sair pelo laco real.
-PASS: modo texto 03h e pagina 0 restaurados
-PASS E02: sequencia encerrada

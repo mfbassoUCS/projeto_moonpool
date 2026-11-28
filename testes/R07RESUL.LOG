@@ -1,8 +1,0 @@
-R07 - inicio
-PASS MEM: 320 quadros/2 voltas; pixels, guarda, DF e relogio.
-PASS JIPE: 80 casos; 640 quadros, 65000 bytes por quadro.
-PASS R07 LOGICA: 362 verificacoes; 7 saltos reais; 20000 pixels gerados.
-PASS R07 PIX: 336 quadros exportados com guarda e metadados.
-PASS R07 AUTO: geracao/morte natural, reposicao, ultima vida, tempo, reset, Sair.
-PASS: modo texto 03h e pagina 0 restaurados
-PASS R07

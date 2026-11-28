@@ -1,8 +1,0 @@
-﻿
-Algorithm Hash                                                             Path                       
---------- ----                                                             ----                       
-SHA256    8F9BF3FAD3C8684B8326DA5CE8F438CFBA672A3944624E7BEE4730E25928F064 C:\ucs\moon_patrol\MOON.ASM
-SHA256    6E1E18D5DBC6517A01E74740AC6DA5328EC6D05079D58ACC930502969A8CCC64 C:\ucs\moon_patrol\MOON.EXE
-
-
-

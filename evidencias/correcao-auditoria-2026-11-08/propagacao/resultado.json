@@ -1,9 +1,0 @@
-{
-  "resultado": "PASS",
-  "metodo": "Falha injetada no BAT filho e marcas antigas presentes; copia isolada",
-  "logs": {
-    "R08": "FAIL R08 injetado\n",
-    "N08": "N08 - inicio\nFAIL N08\n",
-    "E08": "E08 - inicio\nFAIL E08\n"
-  }
-}

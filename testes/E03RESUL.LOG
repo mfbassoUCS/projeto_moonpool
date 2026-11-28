@@ -1,8 +1,0 @@
-E03 - inicio
-PASS MEM: 320 quadros/2 voltas; todos os pixels; HUD/ceu; guarda;
-offsets 1/319; FF/00; 99/100/350 centesimos; pausa; meia-noite.
-PASS AUTO: fluxo real; segundos; expiracao; score; reset; Sair.
-PASS AUTO: fluxo real; segundos; expiracao; score; reset; Sair.
-PASS AUTO: fluxo real; segundos; expiracao; score; reset; Sair.
-PASS: modo texto 03h e pagina 0 restaurados
-PASS E03
